@@ -19,8 +19,10 @@ class PenjualanDetailsTable
                 TextColumn::make('barang.barang_id')
                     ->searchable(),
                 TextColumn::make('harga')
-                    ->numeric()
-                    ->sortable(),
+                ->label('Harga')
+                ->numeric(0, ',', '.')
+                ->prefix('Rp ')        
+                ->sortable(),
                 TextColumn::make('jumlah')
                     ->numeric()
                     ->sortable(),

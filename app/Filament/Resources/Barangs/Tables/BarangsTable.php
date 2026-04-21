@@ -26,13 +26,15 @@ class BarangsTable
                     ->label('Kategori')
                     ->sortable(),
                 TextColumn::make('harga_beli')
-                    ->label('Beli')
-                    ->money('IDR')
-                    ->sortable(),
+                ->label('Beli')
+                ->numeric(0, ',', '.') 
+                ->prefix('Rp ')        
+                ->sortable(),
                 TextColumn::make('harga_jual')
-                    ->label('Jual')
-                    ->money('IDR')
-                    ->sortable(),
+                ->label('Jual')
+                ->numeric(0, ',', '.') 
+                ->prefix('Rp ')
+                ->sortable(),
                 TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
