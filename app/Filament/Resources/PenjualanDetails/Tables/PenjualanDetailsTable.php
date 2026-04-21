@@ -18,6 +18,10 @@ class PenjualanDetailsTable
                     ->searchable(),
                 TextColumn::make('barang.barang_id')
                     ->searchable(),
+                TextColumn::make('barang.barang_nama')
+                ->label('Nama Barang')
+                ->sortable()
+                ->searchable(),
                 TextColumn::make('harga')
                 ->label('Harga')
                 ->numeric(0, ',', '.')
@@ -26,6 +30,15 @@ class PenjualanDetailsTable
                 TextColumn::make('jumlah')
                     ->numeric()
                     ->sortable(),
+                TextColumn::make('subtotal')
+                ->label('Subtotal')
+                ->state(function ($record) {
+                return $record->harga * $record->jumlah;
+                })
+                ->numeric(0, ',', '.')
+                ->prefix('Rp ')
+                ->color('success')
+                ->weight('bold'),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
