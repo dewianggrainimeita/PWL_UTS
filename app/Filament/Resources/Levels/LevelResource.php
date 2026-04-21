@@ -10,6 +10,7 @@ use App\Filament\Resources\Levels\Tables\LevelsTable;
 use App\Models\Level;
 use BackedEnum;
 use Filament\Resources\Resource;
+use UnitEnum;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
@@ -18,9 +19,15 @@ class LevelResource extends Resource
 {
     protected static ?string $model = Level::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-shield-check';
 
-    protected static ?string $recordTitleAttribute = 'nama_level';
+    protected static ?string $recordTitleAttribute = 'level_nama';
+
+    protected static string|UnitEnum|null $navigationGroup = 'Master data';
+
+    protected static ?string $modelLabel = 'Level';
+
+    protected static ?string $pluralModelLabel = 'Level';
 
     public static function form(Schema $schema): Schema
     {

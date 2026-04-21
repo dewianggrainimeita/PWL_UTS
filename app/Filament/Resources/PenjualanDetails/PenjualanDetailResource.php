@@ -9,6 +9,7 @@ use App\Filament\Resources\PenjualanDetails\Schemas\PenjualanDetailForm;
 use App\Filament\Resources\PenjualanDetails\Tables\PenjualanDetailsTable;
 use App\Models\PenjualanDetail;
 use BackedEnum;
+use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -18,9 +19,17 @@ class PenjualanDetailResource extends Resource
 {
     protected static ?string $model = PenjualanDetail::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedClipboardDocumentList;
 
-    protected static ?string $recordTitleAttribute = 'jumlah';
+    protected static bool $shouldRegisterNavigation = true;
+
+    protected static ?string $recordTitleAttribute = 'id';
+
+    protected static ?string $modelLabel = 'Detail Penjualan';
+
+    protected static ?string $pluralModelLabel = 'Detail Penjualan';
+
+    protected static string|UnitEnum|null $navigationGroup = 'Transaksi';
 
     public static function form(Schema $schema): Schema
     {
@@ -34,9 +43,7 @@ class PenjualanDetailResource extends Resource
 
     public static function getRelations(): array
     {
-        return [
-            //
-        ];
+        return [];
     }
 
     public static function getPages(): array

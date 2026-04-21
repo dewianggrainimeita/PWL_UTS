@@ -10,6 +10,7 @@ use App\Filament\Resources\Kategoris\Tables\KategorisTable;
 use App\Models\Kategori;
 use BackedEnum;
 use Filament\Resources\Resource;
+use UnitEnum;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
@@ -18,9 +19,15 @@ class KategoriResource extends Resource
 {
     protected static ?string $model = Kategori::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-tag';
 
-    protected static ?string $recordTitleAttribute = 'nama_kategori';
+    protected static ?string $recordTitleAttribute = 'kategori_nama';
+
+    protected static string|UnitEnum|null $navigationGroup = 'Master data';
+
+    protected static ?string $modelLabel = 'Kategori';
+
+    protected static ?string $pluralModelLabel = 'Kategori';
 
     public static function form(Schema $schema): Schema
     {

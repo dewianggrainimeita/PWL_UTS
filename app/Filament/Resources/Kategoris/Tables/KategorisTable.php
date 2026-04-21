@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Kategoris\Tables;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
 class KategorisTable
@@ -13,7 +14,18 @@ class KategorisTable
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('kategori_kode')
+                    ->label('Kode')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('kategori_nama')
+                    ->label('Nama')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //

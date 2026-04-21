@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Kategoris\Schemas;
 
+use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
 class KategoriForm
@@ -10,7 +11,15 @@ class KategoriForm
     {
         return $schema
             ->components([
-                //
+                TextInput::make('kategori_kode')
+                    ->label('Kode kategori')
+                    ->required()
+                    ->maxLength(10)
+                    ->unique(ignoreRecord: true),
+                TextInput::make('kategori_nama')
+                    ->label('Nama kategori')
+                    ->required()
+                    ->maxLength(100),
             ]);
     }
 }

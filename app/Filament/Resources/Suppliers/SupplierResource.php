@@ -10,6 +10,7 @@ use App\Filament\Resources\Suppliers\Tables\SuppliersTable;
 use App\Models\Supplier;
 use BackedEnum;
 use Filament\Resources\Resource;
+use UnitEnum;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
@@ -18,9 +19,15 @@ class SupplierResource extends Resource
 {
     protected static ?string $model = Supplier::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-building-storefront';
 
     protected static ?string $recordTitleAttribute = 'supplier_nama';
+
+    protected static string|UnitEnum|null $navigationGroup = 'Master data';
+
+    protected static ?string $modelLabel = 'Supplier';
+
+    protected static ?string $pluralModelLabel = 'Supplier';
 
     public static function form(Schema $schema): Schema
     {

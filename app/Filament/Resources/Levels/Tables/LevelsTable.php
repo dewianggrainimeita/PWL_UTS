@@ -14,6 +14,14 @@ class LevelsTable
     {
         return $table
             ->columns([
+                TextColumn::make('level_kode')
+                    ->label('Kode')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('level_nama')
+                    ->label('Nama')
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
